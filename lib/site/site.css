@@ -1,0 +1,125 @@
+/* COULEURS DU SITE */
+/*font */
+/*@mixin grid-unit($span:1) {
+    span: $span;
+    float: left;
+    margin-right: $gutter-width;
+    width: ($column-width * $span) + ($gutter-width * ($span));
+}
+*/
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#page {
+  width: 100%;
+  height: max-content;
+  overflow: hidden;
+  background-color: #fffff5;
+  font-family: "Molle", "Verdana", "Arial";
+}
+
+.barre__superieure {
+  background-color: #f9b313;
+}
+.barre__superieure--deux {
+  background-color: #af1a20;
+  color: white;
+}
+.barre__superieure .img__titre {
+  width: 150px;
+  height: 150px;
+}
+.barre__superieure .ours {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.barre__superieure .bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.barre__superieure a.bar {
+  color: black;
+}
+.barre__superieure .barre__footer {
+  background-color: #f9b313;
+  height: 3vh;
+}
+
+.barre__inferieure {
+  background-color: gainsboro;
+}
+.barre__inferieure .menu {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.text h1 {
+  color: #171813;
+  text-shadow: 4px 4px 4px black;
+  letter-spacing: 2px;
+  font-size: 3rem;
+}
+.text h1.couleurDeux {
+  color: white;
+}
+.text .classique {
+  font-size: 2rem;
+  font-weight: 400;
+}
+.text--contact {
+  text-decoration: none;
+}
+
+.list {
+  margin-top: 3vh;
+}
+
+.list__produits li {
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 3vh;
+}
+.list__produits li:hover {
+  background-color: #f9b313;
+  padding: 5px;
+}
+
+.liste__photo {
+  width: 100px;
+  height: 100px;
+}
+
+footer {
+  background-color: #f9b313;
+  margin-top: 5vh;
+  height: 7vh;
+}
+footer p {
+  color: #171813;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+footer:hover {
+  animation: propriete-tremblement 100ms cubic-bezier(0.4, 0.1, 0.6, 0.9);
+  animation-iteration-count: 3;
+}
+footer .footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=site.css.map */

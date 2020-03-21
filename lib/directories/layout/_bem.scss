@@ -1,0 +1,121 @@
+.barre__superieure {
+    @include propriete-fond-barre-couleur;
+
+    &--deux {
+        background-color: $rougeWax20;
+        color: white;
+    }
+
+    .img__titre {
+        @include propriete-img__titre;
+    }
+
+    .ours {
+        @include propriete-col-img;
+    }
+
+    .bar {
+        @include propriete-fa-bar;
+    }
+
+  
+    .barre__footer {
+        @include propriete-fond-barre-couleur;
+        height: 3vh;
+
+
+    }
+}
+
+.barre__inferieure {
+    @include propriete-fond-barre-gris;
+
+
+
+    .menu {
+        @include propriete-ul-titre;
+
+    }
+}
+
+
+
+.text {
+    @include propriete-text;
+
+
+
+    h1 {
+        @include propriété-h1;
+
+        &.couleurDeux {
+            color: white;
+        }
+    }
+
+    .classique {
+        @include propriete-classique-paragraphe;
+    }
+
+    &--contact {
+        text-decoration: none;
+    }
+
+}
+
+.list {
+    margin-top: 3vh;
+}
+
+.list__produits li {
+    @include propriete-li-liste;
+    margin-top: 3vh;
+
+    &:hover {
+        background-color: #f9b313;
+        padding: 5px;
+    }
+}
+
+.liste__photo {
+    @include propriete-image-liste;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    @include propriete-footer;
+
+    p {
+        @include propriete-text-footer;
+    }
+
+    &:hover {
+        animation: propriete-tremblement 100ms cubic-bezier(.4, .1, .6, .9);
+        animation-iteration-count: 3;
+    }
+
+    .footer {
+        @include propriete-col-footer;
+    }
+}
