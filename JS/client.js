@@ -16,16 +16,9 @@ class Client {
     ajouterPanier() {
         this.panier.push();
     }
-    enleverPanier() {
-        for (let i = 0; i < this.panier.length; i++) {
-            if (this.panier[i].nomArticle === codeBarre.nomArticle) {
-                this.panier.splice(i, 1)
-                return
-            }
 
-        }
 
-    }
 }
+
 
 var visite = 0;
