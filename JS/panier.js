@@ -1,14 +1,6 @@
 
 
-
-
-
-
-
-
-
-
-/*class Panier {
+class Panier {
     constructor() {
         this.numeroClient = 0;
         this.addition = 0;

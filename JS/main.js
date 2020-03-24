@@ -20,25 +20,29 @@ axios.get("http://localhost:3000/api/teddies").then(response => {
 */
 
 
-let liNounours1 = document.querySelector(".list__produits");
-liNounours1 = document.createElement("li");
-liNounours1.classList = "ours1";
-document.querySelector(".list__produits").innerHTML = liNounours1;
-let imgNounours = document.createElement("img");
-
-
-
-
 const getTeddies = async function () {
+  console.log(document.querySelector(".list__produits"));
   let response = await fetch("http://localhost:3000/api/teddies");
   if (response.ok) {
     let data = await response.json();
     console.log(data);
-    for (let i = 0; i <= 5; i++) {
-      let presNounours = data[i].name;
+    // data = nom de mon tableau 
+    for (let i = 0; i < data.length; i++) {
+      let nameNounours = data[i].name;
       let imgNounours = data[i].imageUrl;
-      console.log(presNounours, imgNounours)
 
+
+      liNounours = document.createElement("li");
+      liNounours.classList = "ours";
+      liNounours.appendChild(document.createTextNode(nameNounours));
+      document.querySelector(".list__produits").appendChild(liNounours);
+
+
+
+      /*
+             imgNounours.classList = "imgOurs";
+             liNounours.appendChild(document.createElement(imgNounurs));
+             document.querySelector(".ours").appendChild(imgNounours); */
 
 
     }
@@ -48,14 +52,12 @@ const getTeddies = async function () {
   }
 }
 
+
 getTeddies();
 
-
-const afficherList = () => {
-  document.querySelector(".list__produits").appenChild(liNounours1);
-}
-afficherList();
-
+spanNounours = document.createElement("div");
+span.classList = "img";
+document.querySelectorAll(nameNounours).appendChil(spanNounours);
 
 
 
