@@ -34,15 +34,22 @@ const getTeddies = async function () {
 
       liNounours = document.createElement("li");
       liNounours.classList = "ours";
-      liNounours.appendChild(document.createTextNode(nameNounours));
-      document.querySelector(".list__produits").appendChild(liNounours);
+      aNounours = document.createElement("a");
+      aNounours.href = data[i]._id;
+      aNounours.classList = "aOurs"
+      pNounours = document.createElement('p');
+      pNounours.classList = "pOurs"
+      pNounours.textContent = nameNounours;
 
+      imgNounours = document.createElement("img");
+      imgNounours.classList = "imgOurs";
+      imgNounours.src = data[i].imageUrl;
 
-
-      /*
-             imgNounours.classList = "imgOurs";
-             liNounours.appendChild(document.createElement(imgNounurs));
-             document.querySelector(".ours").appendChild(imgNounours); */
+      ulNounours = document.getElementById("list__produits");
+      liNounours.appendChild(aNounours);
+      aNounours.appendChild(pNounours);
+      liNounours.appendChild(imgNounours);
+      ulNounours.appendChild(liNounours);
 
 
     }
@@ -55,9 +62,7 @@ const getTeddies = async function () {
 
 getTeddies();
 
-spanNounours = document.createElement("div");
-span.classList = "img";
-document.querySelectorAll(nameNounours).appendChil(spanNounours);
+
 
 
 

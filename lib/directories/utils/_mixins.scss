@@ -40,7 +40,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 @mixin propriete-col-img {
@@ -74,8 +74,16 @@
 
 }
 
+@mixin propriete-p {
+    text-decoration: none;
+    color: black;
 
+}
 
+@mixin propriete-a {
+    text-decoration: none;
+
+}
 
 
 

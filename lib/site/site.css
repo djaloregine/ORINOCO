@@ -41,9 +41,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-.barre__superieure a.bar {
-  color: black;
-}
 .barre__superieure .barre__footer {
   background-color: #f9b313;
   height: 3vh;
@@ -101,6 +98,24 @@ body {
 .liste__photo {
   width: 100px;
   height: 100px;
+}
+
+.img1,
+.imgOurs {
+  width: 100px;
+  height: 100px;
+}
+
+.pOurs {
+  text-decoration: none;
+  color: black;
+}
+
+a.aOurs :link {
+  text-decoration: none;
+}
+a.aOurs :hover {
+  color: #af1a20;
 }
 
 footer {
