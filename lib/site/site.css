@@ -84,7 +84,7 @@ body {
 }
 
 .list__produits li {
-  width: 400px;
+  width: 500px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -109,13 +109,19 @@ body {
 .pOurs {
   text-decoration: none;
   color: black;
+  padding-left: 20px;
 }
 
-a.aOurs :link {
+a.aOurs {
+  transform: scale(1);
+  transition: transform 400ms;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 a.aOurs :hover {
   color: #af1a20;
+  transform: scale(1.5);
 }
 
 footer {
