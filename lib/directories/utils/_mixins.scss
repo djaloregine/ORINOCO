@@ -62,7 +62,7 @@
 }
 
 @mixin propriete-li-liste {
-    width: 400px;
+    width: 500px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -77,11 +77,14 @@
 @mixin propriete-p {
     text-decoration: none;
     color: black;
+    padding-left: 20px;
 
 }
 
 @mixin propriete-a {
     text-decoration: none;
+    display: flex;
+    align-items: center;
 
 }
 
