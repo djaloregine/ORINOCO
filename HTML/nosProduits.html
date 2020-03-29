@@ -47,7 +47,7 @@
                 <nav>
                     <ul class="menu">
                         <li> Produits </li>
-                        <li> <a> Votre panier</a> </li>
+                        <li> <a href="panier.html" target="_blank"> Votre panier</a> </li>
                     </ul>
                 </nav>
             </div>
@@ -56,15 +56,38 @@
         <section class="row liste__produits">
             <div class="col-2"> </div>
             <div class="col-10 list__commercialisation">
-                <h2> Choissisez vos produits </h2>
+                <h2> Présentation de votre ours en peluche </h2>
 
                 <div id="list__produits__affichage">
 
                 </div>
 
+                <div id="compteur">
+
+                </div>
+
             </div>
+
+
         </section>
 
+
+        <section class="row container gestion">
+            <div class="col-lg-5 ">
+                <h2>Gestion du panier</h2>
+                <label class="gestionPanier col-lg-3"> Identifiant
+                    <input type="number" id="identifiant" class="input-sm form-control"> </input>
+                </label>
+                <label class="gestionPanier col-lg-3"> Quantité
+                    <input type="number" id="qte" class="input-sm form-control"></input>
+                </label>
+                <label class="gestionPanier col-lg-3"> Prix
+                    <input type="number" id="prix" class="input-sm form-control"></input>
+                </label>
+                <button class="btn btn-primary" type="submit" onclick="ajouter()">
+                    <span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier</button>
+            </div>
+        </section>
 
     </div>
 

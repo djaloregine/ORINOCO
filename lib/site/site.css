@@ -27,6 +27,10 @@ body {
   background-color: #af1a20;
   color: white;
 }
+.barre__superieure--trois {
+  background-color: #2f3f8d;
+  color: white;
+}
 .barre__superieure .img__titre {
   width: 150px;
   height: 150px;
@@ -124,6 +128,66 @@ a.aOurs :hover {
   transform: scale(1.5);
 }
 
+/* PAGE NOS PRODUITS */
+.list__commercialisation h2 {
+  margin-top: 30px;
+}
+
+.contenant {
+  margin-top: 30px;
+  width: 700px;
+  height: 300px;
+  display: flex;
+  font-size: 1.5rem;
+  border: 3px solid #af1a20;
+}
+.contenant .pOurs {
+  text-align: left;
+  padding-top: 5px;
+  font-size: 2rem;
+}
+.contenant .imgOurs {
+  align-content: flex-start;
+  margin-top: 75px;
+  margin-left: -80px;
+}
+.contenant .descriptionOurs {
+  text-align: right;
+  padding-top: 50px;
+  width: 400px;
+  flex-wrap: wrap;
+  margin-right: -300px;
+  height: 80px;
+}
+.contenant .prixOurs {
+  text-align: right;
+  margin-top: 200px;
+  margin-left: -85px;
+}
+.contenant #couleurOurs {
+  text-align: right;
+  margin-top: 220px;
+}
+
+buton.compteur {
+  height: 50px;
+  width: 100px;
+  border: 2px solid #2f3f8d;
+  margin-left: 30px;
+  padding-left: 100px;
+}
+
+.gestion {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gestionPanier {
+  width: 120px;
+}
+
+/* PAGE PANIER */
 footer {
   background-color: #f9b313;
   margin-top: 5vh;

@@ -33,7 +33,7 @@ fetch("http://localhost:3000/api/teddies")
         liNounours = document.createElement("li");
         liNounours.classList = "ours";
         aNounours = document.createElement("a");
-        aNounours.href = data[i]._id;
+        aNounours.href = "HTML/nosProduits.html?id=" + data[i]._id;
         aNounours.classList = "aOurs"
         pNounours = document.createElement('p');
         pNounours.classList = "pOurs"

@@ -88,16 +88,56 @@
 
 }
 
+@mixin propriete-contenant {
+    margin-top: 30px;
+    width: 700px;
+    height: 300px;
+    display: flex;
+    font-size: 1.5rem;
+    border: 3px solid $rougeWax20;
+}
+
+@mixin propriete-pOurs {
+    text-align: left;
+    padding-top: 5px;
+    font-size: 2rem;
+}
+
+@mixin propriete-imgOurs {
+    align-content: flex-start;
+    margin-top: 75px;
+    margin-left: -80px;
+}
+
+@mixin propriete-descriptionOurs {
+    text-align: right;
+    padding-top: 50px;
+    width: 400px;
+    flex-wrap: wrap;
+    margin-right: -300px;
+    height: 80px;
+
+}
+
+@mixin propriete-prixOurs {
+    text-align: right;
+    margin-top: 200px;
+    margin-left: -85px;
+}
+
+@mixin propriete-couleurOurs {
+    text-align: right;
+    margin-top: 220px;
+}
 
 
-
-
-
-
-
-
-
-
+@mixin propriete-compteur {
+    height: 50px;
+    width: 100px;
+    border: 2px solid $bleuWax20;
+    margin-left: 30px;
+    padding-left: 100px;
+}
 
 
 

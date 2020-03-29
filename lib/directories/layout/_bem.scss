@@ -6,6 +6,11 @@
         color: white;
     }
 
+    &--trois {
+        background-color: $bleuWax20;
+        color: white;
+    }
+
     .img__titre {
         @include propriete-img__titre;
     }
@@ -105,12 +110,53 @@ a.aOurs {
 }
 
 
+/* PAGE NOS PRODUITS */
+
+.list__commercialisation h2 {
+    margin-top: 30px;
+}
+
+.contenant {
+    @include propriete-contenant;
+
+    .pOurs {
+        @include propriete-pOurs;
+    }
+
+    .imgOurs {
+        @include propriete-imgOurs;
+    }
+
+    .descriptionOurs {
+        @include propriete-descriptionOurs;
+    }
+
+    .prixOurs {
+        @include propriete-prixOurs;
+    }
+
+    #couleurOurs {
+        @include propriete-couleurOurs;
+    }
+}
 
 
+buton.compteur {
+    @include propriete-compteur;
+}
+
+.gestion {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gestionPanier {
+    width: 120px;
+}
 
 
-
-
+/* PAGE PANIER */
 
 
 
