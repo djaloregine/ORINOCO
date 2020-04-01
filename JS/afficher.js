@@ -45,11 +45,15 @@ fetch("http://localhost:3000/api/teddies/" + window.location.href.split("/").sli
 
             document.getElementById("prix").value = priceNounours;
 
-            document.getElementById("quantite").value = 1;
-            document.getElementById("prixTotalProduit").value = priceNounours;
+            let quantite = document.getElementById("quantite");
+            quantite.value = 1;
+            let prixTotalLigne = document.getElementById("prixTotalLigne")
+            prixTotalLigne.value = priceNounours;
 
             document.getElementById("quantite").addEventListener("input", (e) => {
-                document.getElementById("prixTotalProduit").value = e.target.value * priceNounours;
+                prixTotalLigne.value = e.target.value * priceNounours;
+
+                ajouter(new lignePanier);
 
             })
         } else {
@@ -83,3 +87,19 @@ const presenterCouleur = (couleurNounours) => {
     }
 
 }
+
+class lignePanier {
+    constructor(id, couleur, quantite, prixUnitaire, prixTotalLigne) {
+        this.id = idNounours;
+        this.couleur = couleurNounours;
+        this.quantite = quantite;
+        this.prixUnitaire = priceNounours;
+        this.prixTotalLigne = prixTotalLigne;
+    }
+
+    ajouter = () => {
+        panier.push.call(this, lignePanier);
+    }
+}
+
+let panier = [new lignePanier];

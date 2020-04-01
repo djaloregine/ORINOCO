@@ -4,6 +4,12 @@
 
 
 
+
+
+
+
+
+
 class Panier {
     constructor() {
         this.numeroClient = 0;
