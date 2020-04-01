@@ -11,6 +11,8 @@ fetch("http://localhost:3000/api/teddies/" + window.location.href.split("/").sli
             let priceNounours = dataAffichage.price;
             let descriptionNounours = dataAffichage.description;
             let couleurNounours = dataAffichage.colors;
+            let idNounours = dataAffichage._id;
+            console.log(idNounours);
 
             affichageNounours = document.createElement("div");
             affichageNounours.classList = " contenant";
@@ -31,21 +33,25 @@ fetch("http://localhost:3000/api/teddies/" + window.location.href.split("/").sli
             divDescript.classList = "descriptionOurs";
             divDescript.textContent = descriptionNounours;
 
-            divCouleur = document.createElement("div");
-            divCouleur.id = "couleurOurs";
-            divCouleur.textContent = couleurNounours;
-
             affichage = document.getElementById("list__produits__affichage");
             affichageNounours.appendChild(pNounours);
             affichageNounours.appendChild(imgNounours);
             affichageNounours.appendChild(divPrix);
             affichageNounours.appendChild(divDescript);
-            affichageNounours.appendChild(divCouleur);
             affichage.appendChild(affichageNounours);
 
+            presenterCouleur(dataAffichage.colors);
 
 
+            document.getElementById("prix").value = priceNounours;
 
+            document.getElementById("quantite").value = 1;
+            document.getElementById("prixTotalProduit").value = priceNounours;
+
+            document.getElementById("quantite").addEventListener("input", (e) => {
+                document.getElementById("prixTotalProduit").value = e.target.value * priceNounours;
+
+            })
         } else {
             console.error("retour du serveur : ", response.status);
         }
@@ -54,29 +60,26 @@ fetch("http://localhost:3000/api/teddies/" + window.location.href.split("/").sli
     }))
 
 
-const choix = (number) => {
-
-    let presenterQuantite = document.createElement("buton");
-    presenterQuantite.classList = "compteur";
-    presenterQuantite.textContent = "Combien souhaitez vous d'ours en peluche ? "
-    compteur = document.getElementById("compteur").appendChild(presenterQuantite);
-
-}
-
-
 const presenterCouleur = (couleurNounours) => {
+
+    divCouleur = document.getElementById("couleur");
     for (let i = 0; i < couleurNounours.length; i++) {
+
 
         affichageCouleur = document.getElementById("couleursOurs");
         divCouleurRadio = document.createElement("input");
+        divCouleurRadio.name = "peluche";
         divCouleurRadio.type = "radio";
         divCouleurRadio.value = couleurNounours[i];
+
+        if (i === 0) {
+            divCouleurRadio.checked = "true"
+        }
 
         divCouleurLabel = document.createElement("label");
         divCouleurLabel.textContent = couleurNounours[i];
         divCouleur.appendChild(divCouleurRadio);
         divCouleur.appendChild(divCouleurLabel);
     }
-    presenterCouleur(dataAffichage.colors);
 
 }

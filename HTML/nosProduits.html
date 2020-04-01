@@ -62,31 +62,46 @@
 
                 </div>
 
-                <div id="compteur">
-
-                </div>
 
             </div>
 
 
         </section>
-
-
         <section class="row container gestion">
-            <div class="col-lg-5 ">
-                <h2>Gestion du panier</h2>
-                <label class="gestionPanier col-lg-3"> Identifiant
-                    <input type="number" id="identifiant" class="input-sm form-control"> </input>
-                </label>
-                <label class="gestionPanier col-lg-3"> Quantité
-                    <input type="number" id="qte" class="input-sm form-control"></input>
-                </label>
-                <label class="gestionPanier col-lg-3"> Prix
-                    <input type="number" id="prix" class="input-sm form-control"></input>
-                </label>
-                <button class="btn btn-primary" type="submit" onclick="ajouter()">
-                    <span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier</button>
+            <div class="col-lg-9 ">
+                <h2> Gestion du produit </h2>
+                <table id="tableau" class="table">
+                    <thead>
+                        <tr>
+                            <th> Couleur </th>
+                            <th>Quantite</th>
+                            <th>Prix unitaire</th>
+                            <th>Prix de la ligne</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div id="couleur"> </div>
+                            </td>
+                            <td> <input type="number" min="1" max="10" id="quantite"
+                                    class="input-sm form-control"></input>
+                            </td>
+                            <td>
+                                <input type="" id="prix" readonly class="input-sm form-control"></input>
+                            </td>
+                            <td>
+                                <input type="" id="prixTotalProduit" class="input-sm form-control"></input>
+                            </td>
+                            <td> <button id="ajout" class="btn btn-primary" type="submit" onclick="ajouter()">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span> Ajouter au panier</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            <label> <a href="../index.html"> Continuez vos achats </a> </label>
         </section>
 
     </div>
