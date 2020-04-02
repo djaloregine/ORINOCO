@@ -12,7 +12,7 @@ fetch("http://localhost:3000/api/teddies/" + window.location.href.split("/").sli
             let descriptionNounours = dataAffichage.description;
             let couleurNounours = dataAffichage.colors;
             let idNounours = dataAffichage._id;
-            console.log(idNounours);
+
 
             affichageNounours = document.createElement("div");
             affichageNounours.classList = " contenant";
@@ -40,11 +40,12 @@ fetch("http://localhost:3000/api/teddies/" + window.location.href.split("/").sli
             affichageNounours.appendChild(divDescript);
             affichage.appendChild(affichageNounours);
 
+            //pour donner le choix de la couleur - voir fonction plus bas
             presenterCouleur(dataAffichage.colors);
 
+            //pour calculer la ligne produit 
 
             document.getElementById("prix").value = priceNounours;
-
             let quantite = document.getElementById("quantite");
             quantite.value = 1;
             let prixTotalLigne = document.getElementById("prixTotalLigne")
@@ -53,9 +54,33 @@ fetch("http://localhost:3000/api/teddies/" + window.location.href.split("/").sli
             document.getElementById("quantite").addEventListener("input", (e) => {
                 prixTotalLigne.value = e.target.value * priceNounours;
 
-                ajouter(new lignePanier);
+                // pour faire coincider une ligne produit et une ligne panier
+
+                let panier = [];
+
+                class lignePanier {
+                    constructor(id, couleur, quantite, prixUnitaire, prixTotalLigne) {
+                        this.id = idNounours;
+                        this.couleur = couleurNounours;
+                        this.quantite = quantite;
+                        this.prixUnitaire = priceNounours;
+                        this.prixTotalLigne = prixTotalLigne;
+                    }
+
+                    ajouter = () => {
+                        panier.push(lignePanier);
+                        console.log(panier);
+                    }
+                }
+                localStorage.setItem("panier", {
+
+                });
+
+
+
 
             })
+
         } else {
             console.error("retour du serveur : ", response.status);
         }
@@ -87,19 +112,3 @@ const presenterCouleur = (couleurNounours) => {
     }
 
 }
-
-class lignePanier {
-    constructor(id, couleur, quantite, prixUnitaire, prixTotalLigne) {
-        this.id = idNounours;
-        this.couleur = couleurNounours;
-        this.quantite = quantite;
-        this.prixUnitaire = priceNounours;
-        this.prixTotalLigne = prixTotalLigne;
-    }
-
-    ajouter = () => {
-        panier.push.call(this, lignePanier);
-    }
-}
-
-let panier = [new lignePanier];

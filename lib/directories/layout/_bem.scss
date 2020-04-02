@@ -158,13 +158,23 @@ buton.compteur {
 
 /* PAGE PANIER */
 
+.h2Trois {
+    text-align: center;
+}
+
+.h3 {
+    text-align: center;
+    color: #2f3f8d;
+}
+
+section {
+    margin-top: 70px;
+}
 
 
 
 
-
-
-
+/* FOOTER */
 
 footer {
     @include propriete-footer;

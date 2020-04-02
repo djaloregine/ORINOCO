@@ -140,7 +140,19 @@
 }
 
 
+/* page PANIER */
 
+@mixin propriete-corps-texte {
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+/* footer */ 
 
 @mixin propriete-footer {
     background-color: $jauneWax20;

@@ -7,9 +7,12 @@
     width: ($column-width * $span) + ($gutter-width * ($span));
 }
 */
+/* page PANIER */
+/* footer */
 body {
   margin: 0px;
   padding: 0px;
+  font-size: 18px;
 }
 
 #page {
@@ -18,6 +21,27 @@ body {
   overflow: hidden;
   background-color: #fffff5;
   font-family: "Molle", "Verdana", "Arial";
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p,
+th,
+td,
+button,
+label,
+option {
+  font-size: 1em;
 }
 
 .barre__superieure {
@@ -188,6 +212,16 @@ buton.compteur {
 }
 
 /* PAGE PANIER */
+.h3 {
+  text-align: center;
+  color: #2f3f8d;
+}
+
+section {
+  margin-top: 70px;
+}
+
+/* FOOTER */
 footer {
   background-color: #f9b313;
   margin-top: 5vh;
