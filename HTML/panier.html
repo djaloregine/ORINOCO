@@ -76,19 +76,17 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
-                                <td> </td>
+                                <td class="tableauPanier"> </td>
+                                <td class="tableauPanier"> </td>
+                                <td class="tableauPanier"> </td>
+                                <td class="tableauPanier"> </td>
+                                <td class="tableauPanier"> </td>
                             </tr>
+
                         </tbody>
                     </table>
-
-
-                    <br><label>Prix du panier total</label> : <label id="prixTotal"></label>
-                    <label id="nbreLignes" hidden>0</label>
-
+                    <div class="total"> <label>Prix du panier total : </label> <label id="prixTotal"></label>
+                    </div>
             </div>
         </section>
 
@@ -96,25 +94,25 @@
             <div class="col-2"> </div>
             <div class="col-8">
                 <h3> Vos données personnelles </h2>
-                    <form action="où doivent être envoyées les données" method="post">
+                    <form class="formPerso" action="où doivent être envoyées les données" method="post">
                         <div>
-                            <label for="lastName">Nom :</label>
-                            <input type="text" id="lastName" name="user_lastName">
+                            <label class="formLab" for="lastName">Nom :</label>
+                            <input class="formIn" type="text" id="lastName" name="user_lastName">
                         </div>
                         <div>
-                            <label for="firstName"> Prénom :</label>
-                            <input type="text" id="firstName" name="user_firstName">
+                            <label class="formLab" for="firstName"> Prénom :</label>
+                            <input class="formIn" type="text" id="firstName" name="user_firstName">
                         </div>
 
                         <div>
-                            <label for="mail">e-mail :</label>
-                            <input type="email" id="mail" name="user_mail">
+                            <label class="formLab" for="mail">e-mail :</label>
+                            <input class="formIn" type="email" id="mail" name="user_mail">
                         </div>
 
                     </form>
 
-                    <div class="button">
-                        <button type="submit">Envoyer vos données </button>
+                    <div class="buttonPerso">
+                        <button class="buttonSubmit" type="submit">Envoyer vos données </button>
                     </div>
             </div>
         </section>
@@ -124,33 +122,34 @@
             <div class="col-2"> </div>
             <div class="col-8">
                 <h3>Informations de paiement</h2>
-                    <p>
-                        <label for="card">
-                            <span>Type de carte :</span>
-                        </label>
-                        <select id="card" name="usercard">
-                            <option value="visa">Visa</option>
-                            <option value="mc">Mastercard</option>
-                            <option value="amex">American Express</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="number">
-                            <span>Numéro de carte :</span>
-                            <strong><abbr title="required">*</abbr></strong>
-                        </label>
-                        <input type="text" id="number" name="cardnumber">
-                    </p>
-                    <p>
-                        <label for="date">
-                            <span>Validité :</span>
-                            <strong><abbr title="required">*</abbr></strong>
-                            <em>format mm/aa</em>
-                        </label>
-                        <input type="text" id="date" name="expiration">
-                    </p>
-
-                    <p> <button type="submit">Valider le paiement</button> </p>
+                    <form class="formPaiement" action="où doivent être envoyées les données" method="post">
+                        <p>
+                            <label class="formLab" for="card">
+                                <span>Type de carte :</span>
+                            </label>
+                            <select id="card" name="usercard">
+                                <option value="visa">Visa</option>
+                                <option value="mc">Mastercard</option>
+                                <option value="amex">American Express</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label class="formLab" for="number">
+                                <span>Numéro de carte :</span>
+                                <strong><abbr title="required">*</abbr></strong>
+                            </label>
+                            <input class="formIn" type="text" id="number" name="cardnumber">
+                        </p>
+                        <p>
+                            <label class="formLab" for="date">
+                                <span>Validité :</span>
+                                <strong><abbr title="required">*</abbr></strong>
+                                <em>format mm/aa</em>
+                            </label>
+                            <input class="formIn" type="text" id="date" name="expiration">
+                        </p>
+                    </form>
+                    <p class="buttonPerso"> <button class="buttonSubmit" type="submit">Valider le paiement</button> </p>
             </div>
         </section>
 

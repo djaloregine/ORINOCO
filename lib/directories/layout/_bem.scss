@@ -140,9 +140,8 @@ a.aOurs {
     }
 }
 
-
-buton.compteur {
-    @include propriete-compteur;
+#couleur {
+    @include propriete-cellule-tableau;
 }
 
 .gestion {
@@ -155,11 +154,21 @@ buton.compteur {
     width: 120px;
 }
 
+.continuez {
+    @include propriete-continuez;
+    margin-left: 30px;
+    margin-top: -20px;
+
+    .col-md-12.col-lg-4 {
+        @include propriete-bouton-continuez;
+    }
+}
 
 /* PAGE PANIER */
 
 .h2Trois {
     text-align: center;
+    margin-top: 50px;
 }
 
 .h3 {
@@ -171,8 +180,35 @@ section {
     margin-top: 70px;
 }
 
+.tableauPanier {
+    @include propriete-cellule-tableau;
+    height: 50px;
+}
 
+.total {
+    width: 400px;
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 3px;
+}
 
+.formPerso,
+.buttonPerso,
+.formPaiement {
+    @include propriete-formulaire-perso;
+
+    .buttonPersoSubmit {
+        align-content: center;
+    }
+
+    .formPersoLab {
+        @include propriete-formulaire-label;
+    }
+
+    .formPersoIn {
+        @include propriete-formulaire-input;
+    }
+}
 
 /* FOOTER */
 

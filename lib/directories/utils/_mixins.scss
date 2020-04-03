@@ -111,18 +111,18 @@
 
 @mixin propriete-descriptionOurs {
     text-align: right;
-    padding-top: 50px;
+    margin-top: 80px;
     width: 400px;
     flex-wrap: wrap;
-    margin-right: -300px;
-    height: 80px;
+    height: 120px;
+    margin-left: 120px;
 
 }
 
 @mixin propriete-prixOurs {
     text-align: right;
     margin-top: 200px;
-    margin-left: -85px;
+    margin-left: -120px;
 }
 
 @mixin propriete-couleurOurs {
@@ -130,15 +130,20 @@
     margin-top: 220px;
 }
 
-
-@mixin propriete-compteur {
-    height: 50px;
-    width: 100px;
-    border: 2px solid $bleuWax20;
-    margin-left: 30px;
-    padding-left: 100px;
+@mixin propriete-cellule-tableau {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
 }
 
+
+@mixin propriete-continuez {
+    text-align: center;
+}
+
+@mixin propriete-bouton-continuez {
+    border: 1px dotted $rougeWax20;
+}
 
 /* page PANIER */
 
@@ -146,13 +151,29 @@
     font-size: 18px;
 }
 
+@mixin propriete-formulaire-perso {
+    margin-top: 20px;
+    margin: 0 auto;
+    width: 400px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
 
+@mixin propriete-formulaire-label {
+    display: inline-block;
+    width: 90px;
+    text-align: left;
+}
 
+@mixin propriete-formulaire-input {
+    font: 1em sans-serif;
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid $bleuWax20;
+}
 
-
-
-
-/* footer */ 
+/* footer */
 
 @mixin propriete-footer {
     background-color: $jauneWax20;

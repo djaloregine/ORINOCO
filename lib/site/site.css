@@ -177,28 +177,26 @@ a.aOurs :hover {
 }
 .contenant .descriptionOurs {
   text-align: right;
-  padding-top: 50px;
+  margin-top: 80px;
   width: 400px;
   flex-wrap: wrap;
-  margin-right: -300px;
-  height: 80px;
+  height: 120px;
+  margin-left: 120px;
 }
 .contenant .prixOurs {
   text-align: right;
   margin-top: 200px;
-  margin-left: -85px;
+  margin-left: -120px;
 }
 .contenant #couleurOurs {
   text-align: right;
   margin-top: 220px;
 }
 
-buton.compteur {
-  height: 50px;
-  width: 100px;
-  border: 2px solid #2f3f8d;
-  margin-left: 30px;
-  padding-left: 100px;
+#couleur {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
 }
 
 .gestion {
@@ -211,7 +209,21 @@ buton.compteur {
   width: 120px;
 }
 
+.continuez {
+  text-align: center;
+  margin-left: 30px;
+  margin-top: -20px;
+}
+.continuez .col-md-12.col-lg-4 {
+  border: 1px dotted #af1a20;
+}
+
 /* PAGE PANIER */
+.h2Trois {
+  text-align: center;
+  margin-top: 50px;
+}
+
 .h3 {
   text-align: center;
   color: #2f3f8d;
@@ -219,6 +231,51 @@ buton.compteur {
 
 section {
   margin-top: 70px;
+}
+
+.tableauPanier {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 50px;
+}
+
+.total {
+  width: 400px;
+  margin-left: 0;
+  padding-left: 0;
+  margin-top: 3px;
+}
+
+.formPerso,
+.buttonPerso,
+.formPaiement {
+  margin-top: 20px;
+  margin: 0 auto;
+  width: 400px;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+.formPerso .buttonPersoSubmit,
+.buttonPerso .buttonPersoSubmit,
+.formPaiement .buttonPersoSubmit {
+  align-content: center;
+}
+.formPerso .formPersoLab,
+.buttonPerso .formPersoLab,
+.formPaiement .formPersoLab {
+  display: inline-block;
+  width: 90px;
+  text-align: left;
+}
+.formPerso .formPersoIn,
+.buttonPerso .formPersoIn,
+.formPaiement .formPersoIn {
+  font: 1em sans-serif;
+  width: 300px;
+  box-sizing: border-box;
+  border: 1px solid #2f3f8d;
 }
 
 /* FOOTER */

@@ -53,33 +53,37 @@ fetch("http://localhost:3000/api/teddies/" + window.location.href.split("/").sli
 
             document.getElementById("quantite").addEventListener("input", (e) => {
                 prixTotalLigne.value = e.target.value * priceNounours;
-
-                // pour faire coincider une ligne produit et une ligne panier
-
-                let panier = [];
-
-                class lignePanier {
-                    constructor(id, couleur, quantite, prixUnitaire, prixTotalLigne) {
-                        this.id = idNounours;
-                        this.couleur = couleurNounours;
-                        this.quantite = quantite;
-                        this.prixUnitaire = priceNounours;
-                        this.prixTotalLigne = prixTotalLigne;
-                    }
-
-                    ajouter = () => {
-                        panier.push(lignePanier);
-                        console.log(panier);
-                    }
-                }
-                localStorage.setItem("panier", {
-
-                });
-
-
-
-
             })
+
+            // pour faire coincider une ligne produit et une ligne panier
+
+            let panier = [];
+
+            class lignePanier {
+                constructor(id, couleur, quantite, prixUnitaire, prixTotalLigne) {
+                    this.id = idNounours;
+                    this.couleur = couleurNounours;
+                    this.quantite = quantite;
+                    this.prixUnitaire = priceNounours;
+                    this.prixTotalLigne = prixTotalLigne;
+                }
+
+                ajouter = () => {
+                    document.getElementById("ajout").addEventListener("input", panier.push(lignePanier));
+                }
+                fetch("http://localhost:3000/api/teddies/", {
+                        method: 'PUT',
+                        body: JSON.stringify(panier),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(res => res.json())
+                    .then(response => console.log('Success:', JSON.stringify(response)))
+                    .catch(error => console.error('Error:', error));
+
+            }
+
+
 
         } else {
             console.error("retour du serveur : ", response.status);
@@ -112,3 +116,8 @@ const presenterCouleur = (couleurNounours) => {
     }
 
 }
+
+
+// https://devdocs.io/dom/fetch_api/using_fetch
+
+//   localStorage.setItem("panier", {}),
