@@ -1,7 +1,7 @@
 let nameNounours = document.getElementsByTagName("pOurs");
+const id = window.location.href.split("/").slice(-1)[0].split("?").slice(-1)[0].split("=").slice(-1)[0];
 
-
-fetch("http://localhost:3000/api/teddies/" + window.location.href.split("/").slice(-1)[0].split("?").slice(-1)[0].split("=").slice(-1)[0])
+fetch("http://localhost:3000/api/teddies/" + id)
     .then(response => response.json().then(dataAffichage => {
         if (response.ok) {
             console.log(dataAffichage);
@@ -48,7 +48,7 @@ fetch("http://localhost:3000/api/teddies/" + window.location.href.split("/").sli
             document.getElementById("prix").value = priceNounours;
             let quantite = document.getElementById("quantite");
             quantite.value = 1;
-            let prixTotalLigne = document.getElementById("prixTotalLigne")
+            let prixTotalLigne = document.getElementById("prixTotalLigne");
             prixTotalLigne.value = priceNounours;
 
             document.getElementById("quantite").addEventListener("input", (e) => {
@@ -57,38 +57,30 @@ fetch("http://localhost:3000/api/teddies/" + window.location.href.split("/").sli
 
             // pour faire coincider une ligne produit et une ligne panier
 
-            let panier = [];
-
-            class lignePanier {
-                constructor(id, couleur, quantite, prixUnitaire, prixTotalLigne) {
-                    this.id = idNounours;
-                    this.couleur = couleurNounours;
-                    this.quantite = quantite;
-                    this.prixUnitaire = priceNounours;
-                    this.prixTotalLigne = prixTotalLigne;
+            document.getElementById("ajout").addEventListener("click", () => {
+                let lignePanier = {
+                    id,
+                    prix: document.getElementById("prixTotalLigne").value,
+                    quantite: document.getElementById("quantite").value,
+                    couleurSelectionnee: couleurSelectionnee(),
                 }
 
-                ajouter = () => {
-                    document.getElementById("ajout").addEventListener("input", panier.push(lignePanier));
+                if (localStorage.panier) {
+                    let panier = JSON.parse(localStorage.panier);
+                    panier.push(lignePanier);
+                    localStorage.setItem("panier", JSON.stringify(panier));
+
+                } else {
+                    localStorage.setItem("panier", JSON.stringify([lignePanier]));
+
                 }
-                fetch("http://localhost:3000/api/teddies/", {
-                        method: 'PUT',
-                        body: JSON.stringify(panier),
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    }).then(res => res.json())
-                    .then(response => console.log('Success:', JSON.stringify(response)))
-                    .catch(error => console.error('Error:', error));
+                console.log(JSON.parse(localStorage.panier));
 
-            }
-
-
+            })
 
         } else {
             console.error("retour du serveur : ", response.status);
         }
-
 
     }))
 
@@ -106,7 +98,7 @@ const presenterCouleur = (couleurNounours) => {
         divCouleurRadio.value = couleurNounours[i];
 
         if (i === 0) {
-            divCouleurRadio.checked = "true"
+            divCouleurRadio.checked = "true";
         }
 
         divCouleurLabel = document.createElement("label");
@@ -116,6 +108,20 @@ const presenterCouleur = (couleurNounours) => {
     }
 
 }
+
+const couleurSelectionnee = () => {
+    var radios = document.getElementsByName('peluche');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if (radios[i].checked) {
+            // do whatever you want with the checked radio
+            return (radios[i].value);
+
+        }
+    }
+}
+
+
 
 
 // https://devdocs.io/dom/fetch_api/using_fetch
