@@ -196,7 +196,7 @@ a.aOurs :hover {
 #couleur {
   display: flex;
   flex-direction: column;
-  width: 150px;
+  height: 40px;
 }
 
 .gestion {
@@ -236,8 +236,7 @@ section {
 .tableauPanier {
   display: flex;
   flex-direction: column;
-  width: 150px;
-  height: 50px;
+  height: 40px;
 }
 
 .total {

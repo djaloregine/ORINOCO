@@ -3,6 +3,59 @@
 // est ce mon serveur qui me sert de stock ? 
 
 
+// obliger la personne à donner son feu vert dans un laps de temps réel : 
+/* window.setTimeOut(function() { if(paiement panier n'est pas fait alerter le client)}, équivalent 5min) */
+
+
+//j'ai une lignePanier qui a été envoyée, je dois la récupérer et la déposer dans le tableau 
+
+
+
+// si le panier existe déjà
+
+if (localStorage.panier) {
+
+    console.log(JSON.parse(localStorage.panier));
+
+    let panier = sessionStorage.getItem("panier");
+    panier = JSON.parse(panier);
+    console.log(panier);
+
+    for (let i = 0; i < panier.length; i++) {
+        let lignePanier = panier[i];
+        console.log(lignePanier);
+    }
+
+
+    lignePanier = document.getElementById("tableau");
+    lignePanier.id = document.getElementsByClassName("identifiantLigne").innerHTML;
+
+
+
+} else {
+    console.log("erreur")
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Panier {
     constructor() {
         this.numeroClient = 0;

@@ -1,4 +1,6 @@
 let nameNounours = document.getElementsByTagName("pOurs");
+/* slice(-1) extrait le split précédent et slice [0] garde le premier élement du tableau */
+
 const id = window.location.href.split("/").slice(-1)[0].split("?").slice(-1)[0].split("=").slice(-1)[0];
 
 fetch("http://localhost:3000/api/teddies/" + id)
@@ -10,9 +12,6 @@ fetch("http://localhost:3000/api/teddies/" + id)
             let imgNounours = dataAffichage.imageUrl;
             let priceNounours = dataAffichage.price;
             let descriptionNounours = dataAffichage.description;
-            let couleurNounours = dataAffichage.colors;
-            let idNounours = dataAffichage._id;
-
 
             affichageNounours = document.createElement("div");
             affichageNounours.classList = " contenant";
@@ -55,7 +54,7 @@ fetch("http://localhost:3000/api/teddies/" + id)
                 prixTotalLigne.value = e.target.value * priceNounours;
             })
 
-            // pour faire coincider une ligne produit et une ligne panier
+            /* sauvegarder set, accéder get. Web storage n'accepte que du JSON */
 
             document.getElementById("ajout").addEventListener("click", () => {
                 let lignePanier = {
@@ -64,12 +63,12 @@ fetch("http://localhost:3000/api/teddies/" + id)
                     quantite: document.getElementById("quantite").value,
                     couleurSelectionnee: couleurSelectionnee(),
                 }
-
+                // si le panier n'existe pas encore
                 if (localStorage.panier) {
                     let panier = JSON.parse(localStorage.panier);
                     panier.push(lignePanier);
                     localStorage.setItem("panier", JSON.stringify(panier));
-
+                    // si le panier existe déjà
                 } else {
                     localStorage.setItem("panier", JSON.stringify([lignePanier]));
 
@@ -109,10 +108,12 @@ const presenterCouleur = (couleurNounours) => {
 
 }
 
-const couleurSelectionnee = () => {
-    var radios = document.getElementsByName('peluche');
+/* https://www.journaldunet.fr/web-tech/developpement/1202681-comment-recuperer-la-valeur-d-un-bouton-radio/*/
 
-    for (var i = 0, length = radios.length; i < length; i++) {
+const couleurSelectionnee = () => {
+    let radios = document.getElementsByName('peluche');
+
+    for (let i = 0; i < radios.length; i++) {
         if (radios[i].checked) {
             // do whatever you want with the checked radio
             return (radios[i].value);
