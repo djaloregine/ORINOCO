@@ -13,22 +13,26 @@
 
 // si le panier existe déjà
 
-if (localStorage.panier) {
 
-    console.log(JSON.parse(localStorage.panier));
+if (sessionStorage.panier) {
+
+    console.log(JSON.parse(sessionStorage.panier));
 
     let panier = sessionStorage.getItem("panier");
     panier = JSON.parse(panier);
     console.log(panier);
 
+
     for (let i = 0; i < panier.length; i++) {
         let lignePanier = panier[i];
         console.log(lignePanier);
+
+
+
     }
 
 
-    lignePanier = document.getElementById("tableau");
-    lignePanier.id = document.getElementsByClassName("identifiantLigne").innerHTML;
+
 
 
 

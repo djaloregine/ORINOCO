@@ -56,7 +56,8 @@ fetch("http://localhost:3000/api/teddies/" + id)
 
             /* sauvegarder set, accéder get. Web storage n'accepte que du JSON */
 
-            document.getElementById("ajout").addEventListener("click", () => {
+            let ajouterLignePanier = document.getElementById("ajout");
+            ajouterLignePanier.addEventListener("click", () => {
                 let lignePanier = {
                     id,
                     prix: document.getElementById("prixTotalLigne").value,
@@ -64,22 +65,23 @@ fetch("http://localhost:3000/api/teddies/" + id)
                     couleurSelectionnee: couleurSelectionnee(),
                 }
                 // si le panier n'existe pas encore
-                if (localStorage.panier) {
-                    let panier = JSON.parse(localStorage.panier);
+                if (sessionStorage.panier) {
+                    let panier = JSON.parse(sessionStorage.panier);
                     panier.push(lignePanier);
-                    localStorage.setItem("panier", JSON.stringify(panier));
+                    sessionStorage.setItem("panier", JSON.stringify(panier));
                     // si le panier existe déjà
                 } else {
-                    localStorage.setItem("panier", JSON.stringify([lignePanier]));
+                    sessionStorage.setItem("panier", JSON.stringify([lignePanier]));
 
                 }
-                console.log(JSON.parse(localStorage.panier));
-
+                console.log(JSON.parse(sessionStorage.panier));
+                //removeEventListener("click", onclick());
             })
 
         } else {
             console.error("retour du serveur : ", response.status);
         }
+
 
     }))
 
