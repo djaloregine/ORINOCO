@@ -144,6 +144,10 @@ a.aOurs {
     @include propriete-cellule-tableau;
 }
 
+.row.container.gestion.not-gutter {
+    height: 100%;
+}
+
 .gestion {
     margin-top: 50px;
     margin-left: auto;
@@ -157,10 +161,11 @@ a.aOurs {
 .continuez {
     @include propriete-continuez;
     margin-left: 30px;
-    margin-top: -20px;
+
 
     .col-md-12.col-lg-4 {
         @include propriete-bouton-continuez;
+        margin-top: 40px;
     }
 }
 
@@ -180,6 +185,13 @@ section {
     margin-top: 70px;
 }
 
+.tableauPartieLigne {
+    border: 2px solid red;
+    width: 500px;
+    height: 200px;
+}
+
+/*
 .tableauPanier {
     @include propriete-cellule-tableau;
     
@@ -191,7 +203,7 @@ section {
     padding-left: 0;
     margin-top: 3px;
 }
-
+*/
 .formPerso,
 .buttonPerso,
 .formPaiement {

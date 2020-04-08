@@ -13,11 +13,11 @@ body {
   margin: 0px;
   padding: 0px;
   font-size: 18px;
+  height: 100vh;
+  width: 100%;
 }
 
 #page {
-  width: 100%;
-  height: max-content;
   overflow: hidden;
   background-color: #fffff5;
   font-family: "Molle", "Verdana", "Arial";
@@ -199,6 +199,10 @@ a.aOurs :hover {
   height: 40px;
 }
 
+.row.container.gestion.not-gutter {
+  height: 100%;
+}
+
 .gestion {
   margin-top: 50px;
   margin-left: auto;
@@ -212,10 +216,10 @@ a.aOurs :hover {
 .continuez {
   text-align: center;
   margin-left: 30px;
-  margin-top: -20px;
 }
 .continuez .col-md-12.col-lg-4 {
   border: 1px dotted #af1a20;
+  margin-top: 40px;
 }
 
 /* PAGE PANIER */
@@ -233,19 +237,25 @@ section {
   margin-top: 70px;
 }
 
+.tableauPartieLigne {
+  border: 2px solid red;
+  width: 500px;
+  height: 200px;
+}
+
+/*
 .tableauPanier {
-  display: flex;
-  flex-direction: column;
-  height: 40px;
+    @include propriete-cellule-tableau;
+
 }
 
 .total {
-  width: 400px;
-  margin-left: 0;
-  padding-left: 0;
-  margin-top: 3px;
+    width: 400px;
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 3px;
 }
-
+*/
 .formPerso,
 .buttonPerso,
 .formPaiement {

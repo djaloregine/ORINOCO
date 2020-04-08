@@ -60,9 +60,10 @@ fetch("http://localhost:3000/api/teddies/" + id)
             ajouterLignePanier.addEventListener("click", () => {
                 let lignePanier = {
                     id,
-                    prix: document.getElementById("prixTotalLigne").value,
+                    prix: document.getElementById("prix").value,
                     quantite: document.getElementById("quantite").value,
                     couleurSelectionnee: couleurSelectionnee(),
+                    prixLigne: prixTotalLigne.value
                 }
                 // si le panier n'existe pas encore
                 if (sessionStorage.panier) {

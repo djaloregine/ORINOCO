@@ -58,40 +58,6 @@
             </div>
         </div>
 
-
-        <section class="row">
-            <div class="col-2"> </div>
-            <div class="col-8">
-                <h3>Le contenu de votre panier</h2>
-
-                    <table id="tableau" class="table">
-                        <thead>
-                            <tr>
-                                <th>Code ID</th>
-                                <th>Quantite</th>
-                                <th>Prix unitaire</th>
-                                <th>Couleur Sélectionnée</th>
-                                <th>Prix de la ligne</th>
-                                <th>Supprimer</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="tableauPanier" id="identifiantLigne"> </td>
-                                <td class="tableauPanier quantiteLigne"> </td>
-                                <td class="tableauPanier prixLigne"> </td>
-                                <td class="tableauPanier couleurLigne"> </td>
-                                <td class="tableauPanier"> </td>
-                                <td class="tableauPanier"> </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                    <div class="total"> <label>Prix du panier total : </label> <label id="prixTotal"></label>
-                    </div>
-            </div>
-        </section>
-
         <section class="row donneesPerso">
             <div class="col-2"> </div>
             <div class="col-8">
@@ -105,7 +71,14 @@
                             <label class="formLab" for="firstName"> Prénom :</label>
                             <input class="formIn" type="text" id="firstName" name="user_firstName">
                         </div>
-
+                        <div>
+                            <label class="formLab" for="adress"> Adresse :</label>
+                            <input class="formIn" type="text" id="adress" name="adress">
+                        </div>
+                        <div>
+                            <label class="formLab" for="town">Ville :</label>
+                            <input class="formIn" type="text" id="town" name="town">
+                        </div>
                         <div>
                             <label class="formLab" for="mail">e-mail :</label>
                             <input class="formIn" type="email" id="mail" name="user_mail">
@@ -113,45 +86,51 @@
 
                     </form>
 
-                    <div class="buttonPerso">
-                        <button class="buttonSubmit" type="submit">Envoyer vos données </button>
-                    </div>
+
             </div>
         </section>
+
+        <section class="row">
+            <div class="col-2"> </div>
+            <div class="col-8">
+                <h3>Le contenu de votre panier</h3>
+
+                <table id="tableau" class="table">
+                    <thead>
+                        <tr>
+                            <th>Code ID</th>
+                            <th>Quantite</th>
+                            <th>Prix unitaire</th>
+                            <th>Couleur Sélectionnée</th>
+                            <th>Prix de la ligne</th>
+                            <th>Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tfoot class="total">
+                        <tr>
+                            <td colspan="4">Prix du panier total : </td>
+                            <td id="prix__total"> </td>
+                        </tr>
+                    </tfoot>
+                    <tbody id="tableau__partie__ligne">
+                        <tr id="test"> </tr>
+
+                    </tbody>
+
+
+                </table>
+            </div>
+        </section>
+
+
 
 
         <section class="row donneesPaiement">
             <div class="col-2"> </div>
             <div class="col-8">
-                <h3>Informations de paiement</h2>
-                    <form class="formPaiement" action="où doivent être envoyées les données" method="post">
-                        <p>
-                            <label class="formLab" for="card">
-                                <span>Type de carte :</span>
-                            </label>
-                            <select id="card" name="usercard">
-                                <option value="visa">Visa</option>
-                                <option value="mc">Mastercard</option>
-                                <option value="amex">American Express</option>
-                            </select>
-                        </p>
-                        <p>
-                            <label class="formLab" for="number">
-                                <span>Numéro de carte :</span>
-                                <strong><abbr title="required">*</abbr></strong>
-                            </label>
-                            <input class="formIn" type="text" id="number" name="cardnumber">
-                        </p>
-                        <p>
-                            <label class="formLab" for="date">
-                                <span>Validité :</span>
-                                <strong><abbr title="required">*</abbr></strong>
-                                <em>format mm/aa</em>
-                            </label>
-                            <input class="formIn" type="text" id="date" name="expiration">
-                        </p>
-                    </form>
-                    <p class="buttonPerso"> <button class="buttonSubmit" type="submit">Valider le paiement</button> </p>
+
+                <p class="buttonPerso"> <button id="buttonSubmitPanierTotal" type="submit">Valider votre panier
+                    </button> </p>
             </div>
         </section>
 
