@@ -109,10 +109,12 @@ option {
 
 .list {
   margin-top: 3vh;
+  text-align: center;
+  margin-bottom: 3vh;
 }
 
 .list__produits li {
-  width: 500px;
+  width: 550px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -126,18 +128,20 @@ option {
 .liste__photo {
   width: 100px;
   height: 100px;
+  margin-right: 200px;
 }
 
 .img1,
 .imgOurs {
   width: 100px;
   height: 100px;
+  margin-right: 200px;
 }
 
 .pOurs {
   text-decoration: none;
   color: black;
-  padding-left: 20px;
+  padding-left: 50px;
 }
 
 a.aOurs {
@@ -159,7 +163,7 @@ a.aOurs :hover {
 
 .contenant {
   margin-top: 30px;
-  width: 700px;
+  width: 500px;
   height: 300px;
   display: flex;
   font-size: 1.5rem;
@@ -257,8 +261,7 @@ section {
 }
 */
 .formPerso,
-.buttonPerso,
-.formPaiement {
+.buttonPerso {
   margin-top: 20px;
   margin: 0 auto;
   width: 400px;
@@ -267,24 +270,34 @@ section {
   border-radius: 1em;
 }
 .formPerso .buttonPersoSubmit,
-.buttonPerso .buttonPersoSubmit,
-.formPaiement .buttonPersoSubmit {
+.buttonPerso .buttonPersoSubmit {
   align-content: center;
 }
 .formPerso .formPersoLab,
-.buttonPerso .formPersoLab,
-.formPaiement .formPersoLab {
+.buttonPerso .formPersoLab {
   display: inline-block;
   width: 90px;
   text-align: left;
 }
 .formPerso .formPersoIn,
-.buttonPerso .formPersoIn,
-.formPaiement .formPersoIn {
+.buttonPerso .formPersoIn {
   font: 1em sans-serif;
   width: 300px;
   box-sizing: border-box;
   border: 1px solid #2f3f8d;
+}
+
+.placeholder {
+  color: silver;
+  font-size: 5px;
+}
+
+input.formIn {
+  font-size: 10px;
+}
+
+button#submit.formLab {
+  background-color: tan;
 }
 
 /* FOOTER */

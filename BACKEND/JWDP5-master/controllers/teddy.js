@@ -57,6 +57,7 @@ exports.orderTeddies = (req, res, next) => {
         }
       ).catch(
         (error) => {
+
           reject(error);
         }
       )
@@ -74,6 +75,7 @@ exports.orderTeddies = (req, res, next) => {
     }
   ).catch(
     (error) => {
+
       return res.status(500).json(error);
     }
   );

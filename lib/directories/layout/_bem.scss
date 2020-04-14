@@ -70,6 +70,8 @@
 
 .list {
     margin-top: 3vh;
+    text-align: center;
+    margin-bottom: 3vh;
 }
 
 .list__produits li {
@@ -205,8 +207,7 @@ section {
 }
 */
 .formPerso,
-.buttonPerso,
-.formPaiement {
+.buttonPerso {
     @include propriete-formulaire-perso;
 
     .buttonPersoSubmit {
@@ -221,6 +222,20 @@ section {
         @include propriete-formulaire-input;
     }
 }
+
+.placeholder {
+    color: silver;
+    font-size: 5px;
+}
+
+input.formIn {
+    font-size: 10px;
+}
+
+button#submit.formLab {
+    background-color: tan;
+}
+
 
 /* FOOTER */
 

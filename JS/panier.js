@@ -1,17 +1,42 @@
-// attention à un moment il faut vérifier que l'ours soit dans la base de données pour être vendu ? 
-// il faut que je ramène des données d'afficher JS (get ?)
-// est ce mon serveur qui me sert de stock ? 
-
-
 // obliger la personne à donner son feu vert dans un laps de temps réel : 
 /* window.setTimeOut(function() { if(paiement panier n'est pas fait alerter le client)}, équivalent 5min) */
 
 
-//j'ai une lignePanier qui a été envoyée, je dois la récupérer et la déposer dans le tableau 
+// les données personnelles
+const form = document.querySelector('form');
+const messageMerci = document.querySelector('merci');
+const ajouterFormulaireLS = document.getElementById("submit");
 
+ajouterFormulaireLS.addEventListener("submit", () => {
 
+    let formulaireContact = {
 
-// si le panier existe déjà
+        nom: document.getElementById("lastName").value,
+        prenom: document.getElementById("firstName").value,
+        adresse: document.getElementById("adress").value,
+        ville: document.getElementById("town").value,
+        email: document.getElementById("mail").value
+
+    };
+
+    localStorage.setItem('mesContactsPersonnels', JSON.stringify(formulaireContact));
+   
+    formulaireVérifier();
+});
+
+formulaireVérifier = () => {
+
+    if (localStorage.getItem('mesContactsPersonnels')) {
+        localStorage.JSON.parse(formulaireContact);
+        let remerciements = localStorage.getItem('prenom');
+        messageMerci.textContent = "Merci" + remerciements;
+
+    } else {
+
+        ajouterFormulaireLS.disabled = false;
+
+    }
+};
 
 
 if (sessionStorage.panier) {
@@ -84,18 +109,59 @@ if (sessionStorage.panier) {
     tdCellulePrixPanier = document.createElement("label");
     tdCellulePrixPanier.classList = "prix__total";
 
-    affichageCellule = document.getElementById("prix__total");
-    affichageCellule.appendChild(tdCellulePrixPanier);
+    let panierPrixTotal = 0;
 
-    let panierPrixTotal = [];
-    panierPrixTotal.push(prixLignePanier);
+    for (let i = 0; i < prixLignePanier.length; i++) {
 
-    for (let i = 0; i < prixLignePanier; i++) {
-        let sommePrixPanier = 0;
-        sommePrixPanier = sommePrixPanier + panierPrixTotal[i]
-        tdCellulePrixPanier.textContent = sommePrixPanier;
+        panierPrixTotal += parseInt(prixLignePanier[i].innerHTML);
 
     }
+    tdCellulePrixPanier.innerHTML = panierPrixTotal;
+    document.getElementById("prix__total").appendChild(tdCellulePrixPanier)
+
+
+    document.getElementById("buttonSubmitPanierTotal").addEventListener("click", (e) => {
+
+        console.log("panier valide");
+        if (panierPrixTotal === 0) {
+            e.preventDefault();
+            return
+
+        } else {
+            if (!sessionStorage.panier) {
+                console.log("erreur");
+            }
+        }
+
+
+        fetch("http://localhost:3000/api/teddies/order", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            //body : ce que je vais envoyer au serveur et qui doit être en JSON 
+            body: JSON.stringify({
+                    // je prends les contacts dans le local strorage qui sont en ? 
+                    contact: contact, // un objet ,
+                    // je prends les produits dans le session strorage qui sont en ? 
+                    products: sessionStorage.getItem('panier')
+                })
+                .then(response => {
+                    console.log(response);
+                    //status(201) ou status ==201
+                    //json.parse
+                    if (response.ok) {
+                        // me renvoie ce que j'ai mis dans le body + un order-id qui est celui du client 
+
+
+                    }
+                })
+                .catch({})
+
+
+        })
+
+    })
 
 } else {
     console.log("erreur")
@@ -103,39 +169,26 @@ if (sessionStorage.panier) {
 }
 
 
-document.getElementById("buttonSubmitPanierTotal").addEventListener("click", (e) => {
-
-    if (sommePrixPanier === 0) {
-        e.preventDefault()
-    } else {
-        if (sessionStorage.panier) {
-            let panier = sessionStorage.setItem("panier");
-            panier = JSON.stringify(panier);
-
-        } else {
-            console.log("erreur");
-        }
-    }
-})
 
 
-let contact = {
 
-    nom: document.getElementById("lastName").value,
-    prenom: document.getElementById("lastName").value,
-    adresse: document.getElementById("adress").value,
-    ville: document.getElementById("town").value,
-    courriel: document.getElementById("mail").value
-};
 
-if (localStorage.contactPanier) {
-    let contactPanier = JSON.parse(localStorage.contactPanier);
-    contactPanier.push(contact);
-    localStorage.setItem("contactPanier", JSON.stringify(contactPanier));
 
-} else {
-    localStorage.setItem("contactPanier", JSON.stringify([contact]));
-}
-console.log(contact);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* parse de JSON vers JS, stringify de JS versJSON */

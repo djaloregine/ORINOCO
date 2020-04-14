@@ -44,8 +44,8 @@
             <div class="col-md-12 col-lg-9">
                 <nav>
                     <ul class="menu">
+                        <li> <a href="index.html" target="_blank"> Liste des produits </a> </li>
                         <li> <a href="nosProduits.html" target="_blank"> Afficher les produits </a> </li>
-
                         <li> <a> Voir votre panier </a> </li>
                     </ul>
                 </nav>
@@ -62,31 +62,38 @@
             <div class="col-2"> </div>
             <div class="col-8">
                 <h3> Vos données personnelles </h2>
-                    <form class="formPerso" action="où doivent être envoyées les données" method="post">
-                        <div>
-                            <label class="formLab" for="lastName">Nom :</label>
-                            <input class="formIn" type="text" id="lastName" name="user_lastName">
-                        </div>
-                        <div>
-                            <label class="formLab" for="firstName"> Prénom :</label>
-                            <input class="formIn" type="text" id="firstName" name="user_firstName">
-                        </div>
-                        <div>
-                            <label class="formLab" for="adress"> Adresse :</label>
-                            <input class="formIn" type="text" id="adress" name="adress">
-                        </div>
-                        <div>
-                            <label class="formLab" for="town">Ville :</label>
-                            <input class="formIn" type="text" id="town" name="town">
-                        </div>
-                        <div>
-                            <label class="formLab" for="mail">e-mail :</label>
-                            <input class="formIn" type="email" id="mail" name="user_mail">
-                        </div>
-
-                    </form>
-
-
+                    <div>
+                        <label class="formLab" for="lastName" placeholder="votre nom">Nom :</label>
+                        <input class="formIn" type="text" id="lastName" name="user_lastName" placeholder="votre nom"
+                            required>
+                    </div>
+                    <div>
+                        <label class="formLab" for="firstName"> Prénom :</label>
+                        <input class="formIn" type="text" id="firstName" name="user_firstName"
+                            placeholder="votre prénom" required>
+                    </div>
+                    <div>
+                        <label class="formLab" for="adress"> Adresse :</label>
+                        <input class="formIn" type="text" id="adress" name="adress"
+                            placeholder="votre numéro et nom de rue" required>
+                    </div>
+                    <div>
+                        <label class="formLab" for="town">Ville :</label>
+                        <input class="formIn" type="text" id="town" name="town" placeholder="votre ville" required>
+                    </div>
+                    <div>
+                        <label class="formLab" for="mail">e-mail :</label>
+                        <input class="formIn" type="email" id="mail" name="user_mail" placeholder="votre email"
+                            required>
+                    </div>
+                    <div>
+                        <p class="merci"> </p>
+                    </div>
+                    <div>
+                        <button class="formLab" id="submit" disabled>
+                            <input class="formIn" type="submit">
+                        </button>
+                    </div>
             </div>
         </section>
 
