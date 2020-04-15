@@ -7,6 +7,7 @@
     width: ($column-width * $span) + ($gutter-width * ($span));
 }
 */
+/* PROPRIETE PAGE PRODUITS */
 /* page PANIER */
 /* footer */
 body {
@@ -56,8 +57,14 @@ option {
   color: white;
 }
 .barre__superieure .img__titre {
+  padding: 10px;
   width: 150px;
   height: 150px;
+}
+@media (min-width: 315px) and (max-width: 580px) {
+  .barre__superieure .img__titre {
+    display: none;
+  }
 }
 .barre__superieure .ours {
   display: flex;
@@ -68,6 +75,11 @@ option {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (min-width: 315px) and (max-width: 580px) {
+  .barre__superieure .bar {
+    text-align: center;
+  }
 }
 .barre__superieure .barre__footer {
   background-color: #f9b313;
@@ -113,12 +125,22 @@ option {
   margin-bottom: 3vh;
 }
 
+#list__produits {
+  padding-inline-start: 0px;
+}
+@media (min-width: 315px) and (max-width: 415px) {
+  #list__produits {
+    margin-right: 30px;
+  }
+}
+
 .list__produits li {
-  width: 550px;
+  width: 350px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-top: 3vh;
+  margin-left: -20px;
 }
 .list__produits li:hover {
   background-color: #f9b313;
@@ -128,14 +150,12 @@ option {
 .liste__photo {
   width: 100px;
   height: 100px;
-  margin-right: 200px;
 }
 
 .img1,
 .imgOurs {
   width: 100px;
   height: 100px;
-  margin-right: 200px;
 }
 
 .pOurs {
@@ -163,7 +183,7 @@ a.aOurs :hover {
 
 .contenant {
   margin-top: 30px;
-  width: 500px;
+  width: 700px;
   height: 300px;
   display: flex;
   font-size: 1.5rem;
@@ -294,6 +314,15 @@ section {
 
 input.formIn {
   font-size: 10px;
+}
+
+.merci {
+  width: 200px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2f3f8d;
+  border: 1px solid #2f3f8d;
 }
 
 button#submit.formLab {

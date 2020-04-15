@@ -4,10 +4,9 @@
 
 // les données personnelles
 const form = document.querySelector('form');
-const messageMerci = document.querySelector('merci');
-const ajouterFormulaireLS = document.getElementById("submit");
+const messageMerci = document.querySelector('.merci');
 
-ajouterFormulaireLS.addEventListener("submit", () => {
+document.getElementById("btnInput").addEventListener("click", () => {
 
     let formulaireContact = {
 
@@ -20,23 +19,22 @@ ajouterFormulaireLS.addEventListener("submit", () => {
     };
 
     localStorage.setItem('mesContactsPersonnels', JSON.stringify(formulaireContact));
-   
-    formulaireVérifier();
+
+    formulaireVérifier = () => {
+
+        if (localStorage.getItem('mesContactsPersonnels')) {
+            let remerciements = localStorage.getItem('mesContactsPersonnels[1]');
+            messageMerci.textContent = "Merci" + remerciements;
+
+        }
+    };
 });
 
-formulaireVérifier = () => {
 
-    if (localStorage.getItem('mesContactsPersonnels')) {
-        localStorage.JSON.parse(formulaireContact);
-        let remerciements = localStorage.getItem('prenom');
-        messageMerci.textContent = "Merci" + remerciements;
 
-    } else {
 
-        ajouterFormulaireLS.disabled = false;
+/*
 
-    }
-};
 
 
 if (sessionStorage.panier) {
@@ -172,7 +170,7 @@ if (sessionStorage.panier) {
 
 
 
-
+*/
 
 
 

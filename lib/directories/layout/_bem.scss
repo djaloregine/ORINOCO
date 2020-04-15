@@ -13,6 +13,7 @@
 
     .img__titre {
         @include propriete-img__titre;
+
     }
 
     .ours {
@@ -74,9 +75,13 @@
     margin-bottom: 3vh;
 }
 
+#list__produits {
+    @include propriete-ul-ours;
+}
+
 .list__produits li {
     @include propriete-li-liste;
-    margin-top: 3vh;
+
 
     &:hover {
         background-color: #f9b313;
@@ -219,7 +224,7 @@ section {
     }
 
     .formPersoIn {
-        @include propriete-formulaire-input;
+        @include propriete-formulaire;
     }
 }
 
@@ -232,9 +237,15 @@ input.formIn {
     font-size: 10px;
 }
 
+.merci {
+    @include propriete-remerciements;
+}
+
+
 button#submit.formLab {
     background-color: tan;
 }
+
 
 
 /* FOOTER */
