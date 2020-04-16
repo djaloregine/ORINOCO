@@ -1,7 +1,7 @@
 // obliger la personne à donner son feu vert dans un laps de temps réel : 
 /* window.setTimeOut(function() { if(paiement panier n'est pas fait alerter le client)}, équivalent 5min) */
 
-
+/*
 // les données personnelles
 const form = document.querySelector('form');
 const messageMerci = document.querySelector('.merci');
@@ -18,24 +18,21 @@ document.getElementById("btnInput").addEventListener("click", () => {
 
     };
 
-    localStorage.setItem('mesContactsPersonnels', JSON.stringify(formulaireContact));
+    var mesContactsPersonnels = localStorage.setItem('mesContactsPersonnels', JSON.stringify(formulaireContact));
 
     formulaireVérifier = () => {
 
         if (localStorage.getItem('mesContactsPersonnels')) {
-            let remerciements = localStorage.getItem('mesContactsPersonnels[1]');
-            messageMerci.textContent = "Merci" + remerciements;
+            let remerciements = mesContactsPersonnels[1].value;
+            messageMerci.textContent = "Merci " + remerciements;
 
         }
     };
 });
 
+formulaireVérifier();
 
-
-
-/*
-
-
+*/
 
 if (sessionStorage.panier) {
 
@@ -121,56 +118,37 @@ if (sessionStorage.panier) {
     document.getElementById("buttonSubmitPanierTotal").addEventListener("click", (e) => {
 
         console.log("panier valide");
-        if (panierPrixTotal === 0) {
+        if (panierPrixTotal === 0 || !sessionStorage.panier || !localStorage.contact) {
             e.preventDefault();
-            return
+            return;
 
         } else {
-            if (!sessionStorage.panier) {
-                console.log("erreur");
-            }
+
+            fetch("http://localhost:3000/api/teddies/order", {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+
+                body: ({
+                        contact: localStorage.getItem('mesContactsPersonnels'),
+                        products: sessionStorage.getItem('panier')
+                    })
+                    // then et catch du côté serveur et client ? 
+                    .then(() => (res.status(201).json({
+                        message: " voilà !"
+                    })))
+                    .catch(error => res.status(400).json({
+                        error
+                    })),
+
+            })
         }
-
-
-        fetch("http://localhost:3000/api/teddies/order", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            //body : ce que je vais envoyer au serveur et qui doit être en JSON 
-            body: JSON.stringify({
-                    // je prends les contacts dans le local strorage qui sont en ? 
-                    contact: contact, // un objet ,
-                    // je prends les produits dans le session strorage qui sont en ? 
-                    products: sessionStorage.getItem('panier')
-                })
-                .then(response => {
-                    console.log(response);
-                    //status(201) ou status ==201
-                    //json.parse
-                    if (response.ok) {
-                        // me renvoie ce que j'ai mis dans le body + un order-id qui est celui du client 
-
-
-                    }
-                })
-                .catch({})
-
-
-        })
-
     })
-
 } else {
     console.log("erreur")
 
 }
-
-
-
-
-
-*/
 
 
 
