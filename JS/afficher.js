@@ -10,11 +10,11 @@ fetch("http://localhost:3000/api/teddies/" + id)
 
             let nameNounours = dataAffichage.name;
             let imgNounours = dataAffichage.imageUrl;
-            let priceNounours = dataAffichage.price;
+            let priceNounours = dataAffichage.price / 100;
             let descriptionNounours = dataAffichage.description;
 
             affichageNounours = document.createElement("div");
-            affichageNounours.classList = " contenant";
+            affichageNounours.classList = "contenant";
 
             pNounours = document.createElement('p');
             pNounours.classList = "pOurs"
@@ -39,10 +39,8 @@ fetch("http://localhost:3000/api/teddies/" + id)
             affichageNounours.appendChild(divDescript);
             affichage.appendChild(affichageNounours);
 
-            //pour donner le choix de la couleur - voir fonction plus bas
             presenterCouleur(dataAffichage.colors);
 
-            //pour calculer la ligne produit 
 
             document.getElementById("prix").value = priceNounours;
             let quantite = document.getElementById("quantite");
@@ -53,8 +51,6 @@ fetch("http://localhost:3000/api/teddies/" + id)
             document.getElementById("quantite").addEventListener("input", (e) => {
                 prixTotalLigne.value = e.target.value * priceNounours;
             })
-
-            /* sauvegarder set, accéder get. Web storage n'accepte que du JSON */
 
             let ajouterLignePanier = document.getElementById("ajout");
             ajouterLignePanier.addEventListener("click", () => {
@@ -130,4 +126,3 @@ const couleurSelectionnee = () => {
 
 // https://devdocs.io/dom/fetch_api/using_fetch
 
-//   localStorage.setItem("panier", {}),

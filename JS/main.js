@@ -1,30 +1,10 @@
-/*var request = new XMLHttpRequest();
-
-request.onreadystatechange = function () {
-
-  if (request.readyState === 4 && this.status == 200) {
-    var response = JSON.parse(this.responseText);
-    console.log(response[3].name);
-
-  }
-}
-
-request.open("GET", "http://localhost:3000/api/teddies");
-request.send();
-*/
-
-/* BON CODE 
-axios.get("http://localhost:3000/api/teddies").then(response => {
-  console.log(response.data[3].name)
-})
-*/
 
 
 fetch("http://localhost:3000/api/teddies")
   .then(response => response.json().then(data => {
     if (response.ok) {
       console.log(data);
-      // data = nom de mon tableau 
+      
       for (let i = 0; i < data.length; i++) {
         let nameNounours = data[i].name;
         let imgNounours = data[i].imageUrl;

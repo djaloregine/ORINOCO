@@ -11,6 +11,11 @@
         color: white;
     }
 
+    &--quatre {
+        background-color: $vertWax;
+        color: black;
+    }
+
     .img__titre {
         @include propriete-img__titre;
 
@@ -151,29 +156,28 @@ a.aOurs {
     @include propriete-cellule-tableau;
 }
 
+
+#tableau {
+    @include propriete-tableau;
+}
+
 .row.container.gestion.not-gutter {
     height: 100%;
 }
 
 .gestion {
     margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
-.gestionPanier {
-    width: 120px;
 }
 
 .continuez {
     @include propriete-continuez;
     margin-left: 30px;
+}
 
-
-    .col-md-12.col-lg-4 {
-        @include propriete-bouton-continuez;
-        margin-top: 40px;
-    }
+.btnContinuez {
+    @include propriete-bouton-continuez;
+    margin-top: 40px;
 }
 
 /* PAGE PANIER */
@@ -228,6 +232,10 @@ section {
     }
 }
 
+.formLabValider {
+    @include propriete-valider-donnees-perso;
+}
+
 .placeholder {
     color: silver;
     font-size: 5px;
@@ -245,6 +253,15 @@ input.formIn {
 button#submit.formLab {
     background-color: tan;
 }
+
+/* PAGE CONFORMATION */
+
+.text--confirmation {
+    text-align: center;
+    margin-top: 5vh;
+}
+
+
 
 
 
@@ -265,4 +282,8 @@ footer {
     .footer {
         @include propriete-col-footer;
     }
+}
+
+.contenu__mentions {
+    @include propriete-contenu-mentions;
 }

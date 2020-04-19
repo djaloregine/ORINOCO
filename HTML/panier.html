@@ -19,7 +19,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Molle:400i&display=swap" rel="stylesheet">
 
-    <title> Ours en peluches faîts main </title>
+    <title> Ours en peluches faîts main : panier d'achat </title>
 </head>
 
 <body>
@@ -44,8 +44,8 @@
                 <nav>
                     <ul class="menu">
                         <li> <a href="index.html" target="_blank"> Liste des produits </a> </li>
-                        <li> <a href="nosProduits.html" target="_blank"> Afficher les produits </a> </li>
-                        <li> <a> Voir votre panier </a> </li>
+                        <li> <a href="nosProduits.html" target="_blank"> Votre produit </a> </li>
+                        <li> <a> Votre panier </a> </li>
                     </ul>
                 </nav>
             </div>
@@ -59,7 +59,7 @@
 
         <section class="row donneesPerso">
             <div class="col-2"> </div>
-            <form class="col-8">
+            <form class="col-8 perso">
                 <h3> Vos données personnelles </h2>
                     <div>
                         <label class="formLab" for="lastName" placeholder="votre nom">Nom :</label>
@@ -86,12 +86,12 @@
                             required>
                     </div>
                     <div>
-                        <button class="formLab" id="submit">
-                            <input class="formIn" type="submit" id="btnInput">
+                        <button class="formLabValider" type="submit"> Validez vos données personnelles
                         </button>
                     </div>
                     <div class="merci">
                     </div>
+
             </form>
 
         </section>
@@ -109,7 +109,6 @@
                             <th>Prix unitaire</th>
                             <th>Couleur Sélectionnée</th>
                             <th>Prix de la ligne</th>
-                            <th>Supprimer</th>
                         </tr>
                     </thead>
                     <tfoot class="total">

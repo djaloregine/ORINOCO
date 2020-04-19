@@ -22,6 +22,7 @@ body {
   overflow: hidden;
   background-color: #fffff5;
   font-family: "Molle", "Verdana", "Arial";
+  height: max-content;
 }
 
 h1 {
@@ -31,9 +32,28 @@ h1 {
 h2 {
   font-size: 2em;
 }
+@media (min-width: 315px) and (max-width: 767px) {
+  h2 {
+    font-size: 1.5em;
+  }
+}
 
 h3 {
   font-size: 1.5em;
+}
+@media (min-width: 315px) and (max-width: 767px) {
+  h3 {
+    font-size: 1.2em;
+  }
+}
+
+h4 {
+  font-size: 1.2em;
+}
+@media (min-width: 315px) and (max-width: 767px) {
+  h4 {
+    font-size: 1em;
+  }
 }
 
 p,
@@ -43,6 +63,17 @@ button,
 label,
 option {
   font-size: 1em;
+}
+
+a {
+  color: black;
+}
+a:hover {
+  color: #af1a20;
+}
+
+a:link {
+  text-decoration: none;
 }
 
 .barre__superieure {
@@ -55,6 +86,10 @@ option {
 .barre__superieure--trois {
   background-color: #2f3f8d;
   color: white;
+}
+.barre__superieure--quatre {
+  background-color: #659046;
+  color: black;
 }
 .barre__superieure .img__titre {
   padding: 10px;
@@ -94,6 +129,7 @@ option {
   display: flex;
   justify-content: space-around;
   padding-top: 10px;
+  padding-inline-start: 10px;
 }
 
 .text {
@@ -114,6 +150,7 @@ option {
 .text .classique {
   font-size: 2rem;
   font-weight: 400;
+  text-align: center;
 }
 .text--contact {
   text-decoration: none;
@@ -182,11 +219,9 @@ a.aOurs :hover {
 }
 
 .contenant {
-  margin-top: 30px;
-  width: 700px;
-  height: 300px;
   display: flex;
-  font-size: 1.5rem;
+  align-content: space-around;
+  flex-wrap: wrap;
   border: 3px solid #af1a20;
 }
 .contenant .pOurs {
@@ -223,25 +258,27 @@ a.aOurs :hover {
   height: 40px;
 }
 
+@media (min-width: 315px) and (max-width: 767px) {
+  #tableau {
+    font-size: 12px;
+  }
+}
+
 .row.container.gestion.not-gutter {
   height: 100%;
 }
 
 .gestion {
   margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.gestionPanier {
-  width: 120px;
 }
 
 .continuez {
   text-align: center;
+  margin-bottom: 5vh;
   margin-left: 30px;
 }
-.continuez .col-md-12.col-lg-4 {
+
+.btnContinuez {
   border: 1px dotted #af1a20;
   margin-top: 40px;
 }
@@ -307,6 +344,12 @@ section {
   border: 1px solid #2f3f8d;
 }
 
+.formLabValider {
+  background-color: #2f3f8d;
+  color: white;
+  width: 200px;
+}
+
 .placeholder {
   color: silver;
   font-size: 5px;
@@ -329,6 +372,12 @@ button#submit.formLab {
   background-color: tan;
 }
 
+/* PAGE CONFORMATION */
+.text--confirmation {
+  text-align: center;
+  margin-top: 5vh;
+}
+
 /* FOOTER */
 footer {
   background-color: #f9b313;
@@ -347,6 +396,13 @@ footer:hover {
 footer .footer {
   display: flex;
   justify-content: space-around;
+}
+
+.contenu__mentions {
+  margin: 30px;
+}
+.contenu__mentions h2 {
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=site.css.map */

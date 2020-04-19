@@ -1,12 +1,14 @@
 // obliger la personne à donner son feu vert dans un laps de temps réel : 
 /* window.setTimeOut(function() { if(paiement panier n'est pas fait alerter le client)}, équivalent 5min) */
 
-/*
+
 // les données personnelles
 const form = document.querySelector('form');
 const messageMerci = document.querySelector('.merci');
 
-document.getElementById("btnInput").addEventListener("click", () => {
+var contactOK = false;
+
+validContact = (e) => {
 
     let formulaireContact = {
 
@@ -18,21 +20,18 @@ document.getElementById("btnInput").addEventListener("click", () => {
 
     };
 
-    var mesContactsPersonnels = localStorage.setItem('mesContactsPersonnels', JSON.stringify(formulaireContact));
+    localStorage.setItem('mesContactsPersonnels', JSON.stringify(formulaireContact));
 
-    formulaireVérifier = () => {
+    let remerciements = formulaireContact.prenom;
+    messageMerci.textContent = "Merci " + remerciements;
 
-        if (localStorage.getItem('mesContactsPersonnels')) {
-            let remerciements = mesContactsPersonnels[1].value;
-            messageMerci.textContent = "Merci " + remerciements;
+    contactOK = true;
 
-        }
-    };
-});
+    e.preventDefault();
+};
 
-formulaireVérifier();
+document.querySelector(".perso").addEventListener("submit", validContact);
 
-*/
 
 if (sessionStorage.panier) {
 
@@ -73,20 +72,10 @@ if (sessionStorage.panier) {
 
         tdPrixLignePanier = document.createElement("td");
         tdPrixLignePanier.textContent = prixLignePanier;
-        tdPrixLignePanier.id = "prixLignePanier"
-
-        tdSuppression = document.createElement("td");
-        tdSuppression.id = "celluleSupression";
-        const textSupression = "Supprimez la ligne"
-        tdSuppression.textContent = textSupression;
-
-
-        buttonSuppression = document.createElement("button");
-        buttonSuppression.id = "suppression";
-        buttonSuppression.type = "submit";
+        tdPrixLignePanier.id = "prixLignePanier";
 
         trLigneTableau = document.createElement("tr");
-        trLigneTableau.id = "ligneTableau"
+        trLigneTableau.id = "ligneTableau";
 
         affichageLignePanier = document.getElementById("tableau__partie__ligne");
         trLigneTableau.appendChild(tdId);
@@ -94,8 +83,7 @@ if (sessionStorage.panier) {
         trLigneTableau.appendChild(tdPrix);
         trLigneTableau.appendChild(tdCouleur);
         trLigneTableau.appendChild(tdPrixLignePanier);
-        trLigneTableau.appendChild(tdSuppression);
-        tdSuppression.appendChild(buttonSuppression);
+
         affichageLignePanier.appendChild(trLigneTableau);
 
     }
@@ -104,11 +92,13 @@ if (sessionStorage.panier) {
     tdCellulePrixPanier = document.createElement("label");
     tdCellulePrixPanier.classList = "prix__total";
 
+    panier = JSON.parse(sessionStorage.panier)
+
     let panierPrixTotal = 0;
 
-    for (let i = 0; i < prixLignePanier.length; i++) {
+    for (let i = 0; i < panier.length; i++) {
 
-        panierPrixTotal += parseInt(prixLignePanier[i].innerHTML);
+        panierPrixTotal += parseInt(panier[i].prixLigne);
 
     }
     tdCellulePrixPanier.innerHTML = panierPrixTotal;
@@ -117,32 +107,35 @@ if (sessionStorage.panier) {
 
     document.getElementById("buttonSubmitPanierTotal").addEventListener("click", (e) => {
 
-        console.log("panier valide");
-        if (panierPrixTotal === 0 || !sessionStorage.panier || !localStorage.contact) {
+        console.log(panierPrixTotal === 0, !sessionStorage.panier, !contactOK)
+        if (panierPrixTotal === 0 || !sessionStorage.panier || !contactOK) {
             e.preventDefault();
-            return;
+            alert("Avez-vous bien rempli vos données personnelles ?");
+
 
         } else {
 
             fetch("http://localhost:3000/api/teddies/order", {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json"
-                },
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
 
-                body: ({
-                        contact: localStorage.getItem('mesContactsPersonnels'),
-                        products: sessionStorage.getItem('panier')
+                    body: JSON.stringify({
+                        contact: JSON.parse(localStorage.getItem('mesContactsPersonnels')),
+                        //https://devdocs.io/javascript/global_objects/array/map
+                        products: JSON.parse(sessionStorage.getItem('panier')).map(ligne => ligne.id)
                     })
-                    // then et catch du côté serveur et client ? 
-                    .then(() => (res.status(201).json({
-                        message: " voilà !"
-                    })))
-                    .catch(error => res.status(400).json({
-                        error
-                    })),
+                })
+                .then((res) => {
 
-            })
+
+                })
+                .catch((error) => {
+                    alert("Vérifiez vos données");
+
+                })
+
         }
     })
 } else {
@@ -168,3 +161,45 @@ if (sessionStorage.panier) {
 
 
 /* parse de JSON vers JS, stringify de JS versJSON */
+
+
+/*
+//RECAPITULAFIF DE COMMANDE : DEBUT
+const orderSummary = () => {
+    //récupération de la commande
+    let ordered = localStorage.getItem("ordered");
+    // format JS
+    ordered = JSON.parse(ordered);
+    
+    const contact = ordered.contact;
+    const orderId = ordered.orderId;
+
+    // Message de remerciement
+    const thanksMessage = document.querySelector(".thanksMessage");
+    thanksMessage.textContent = `Chèr(e) ${contact.lastName} ${contact.firstName}, nous vous remercions pour cette commande et nous espérons qu'elle vous aportera entière satisfaction!`;
+
+    //coordonées de l'utilisateur
+    const informationName = ["Prénom", "Nom", "Adresse", "Ville", "Email"];
+    //récupération du nom des clé de l'objet contact
+    const informationValue = Object.values(contact);
+
+    const contactInformation = document.querySelector(".contactInformation ul");
+    //liste des coordonées de l'utilisateur de la commande
+    for (let i in informationValue) {
+        const informationElm = document.createElement("li");
+        
+        informationElm.textContent = `${informationName[i]} : ${informationValue[i]}` ;
+        
+        contactInformation.appendChild(informationElm);
+    }
+    //affichage du numéro de commande
+    const showOrderNumber = document.querySelector(".orderNumber");
+    const orderNumber = document.createElement("p");
+    
+    orderNumber.textContent = orderId;
+    orderNumber.style.color = "blue";
+
+    showOrderNumber.appendChild(orderNumber);
+}
+//RECAPITULAFIF DE COMMANDE : FIN
+*/

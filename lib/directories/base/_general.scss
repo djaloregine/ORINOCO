@@ -10,6 +10,7 @@ body {
     overflow: hidden;
     background-color: #fffff5;
     font-family: "Molle", "Verdana", "Arial";
+    height: max-content;
 }
 
 h1 {
@@ -18,10 +19,29 @@ h1 {
 
 h2 {
     font-size: 2em;
+
+    @media (min-width: 315px) and (max-width: 767px) {
+        font-size: 1.5em;
+
+    }
 }
 
 h3 {
     font-size: 1.5em;
+
+    @media (min-width: 315px) and (max-width: 767px) {
+        font-size: 1.2em;
+
+    }
+}
+
+h4 {
+    font-size: 1.2em;
+
+    @media (min-width: 315px) and (max-width: 767px) {
+        font-size: 1em;
+
+    }
 }
 
 p,
@@ -31,4 +51,19 @@ button,
 label,
 option {
     font-size: 1em;
+}
+
+a {
+    color: black;
+
+    &:hover {
+
+        color: $rougeWax20;
+    }
+}
+
+a:link {
+    text-decoration: none;
+
+
 }
