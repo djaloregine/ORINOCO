@@ -378,6 +378,15 @@ button#submit.formLab {
   margin-top: 5vh;
 }
 
+.conf {
+  height: 60px;
+  border: 1px solid #659046;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
 /* FOOTER */
 footer {
   background-color: #f9b313;

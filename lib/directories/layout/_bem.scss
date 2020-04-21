@@ -261,6 +261,9 @@ button#submit.formLab {
     margin-top: 5vh;
 }
 
+.conf {
+    @include propriete-contenus-confirmation
+}
 
 
 

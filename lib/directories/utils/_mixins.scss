@@ -222,6 +222,15 @@
 
 }
 
+@mixin propriete-contenus-confirmation {
+    height: 60px;
+    border: 1px solid $vertWax;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
 /* footer */
 
 @mixin propriete-footer {

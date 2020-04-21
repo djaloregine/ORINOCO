@@ -1,10 +1,8 @@
-
-
 fetch("http://localhost:3000/api/teddies")
   .then(response => response.json().then(data => {
     if (response.ok) {
       console.log(data);
-      
+
       for (let i = 0; i < data.length; i++) {
         let nameNounours = data[i].name;
         let imgNounours = data[i].imageUrl;

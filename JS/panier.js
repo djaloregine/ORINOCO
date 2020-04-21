@@ -127,14 +127,24 @@ if (sessionStorage.panier) {
                         products: JSON.parse(sessionStorage.getItem('panier')).map(ligne => ligne.id)
                     })
                 })
-                .then((res) => {
+                .then(response => response.json().then(dataConfirmation => {
+                    if (response.ok) {
+
+                        console.log(dataConfirmation);
 
 
-                })
+                        alert(`Madame, Monsieur, votre numéro de référence est le suivant : ${dataConfirmation.orderId}`);
+
+
+                    } else {
+                        console.error("retour du serveur : ", response.status);
+                    }
+
+                }))
                 .catch((error) => {
-                    alert("Vérifiez vos données");
-
+                    document.getElementById("numero--ordre").textContent = `problème rencontré `
                 })
+
 
         }
     })
